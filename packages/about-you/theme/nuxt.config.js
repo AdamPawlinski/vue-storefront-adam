@@ -27,6 +27,7 @@ export default {
   buildModules: [
     // to core
     '@nuxt/typescript-build',
+    '@nuxtjs/style-resources',
     ['@vue-storefront/nuxt', {
       // @core-development-only-start
       coreDevelopment: true,
@@ -72,6 +73,9 @@ export default {
     'vue-scrollto/nuxt'
   ],
   i18n: localeConfig,
+  styleResources: {
+    scss: [require.resolve('@storefront-ui/shared/styles/_helpers.scss', { paths: [process.cwd()] })]
+  },
   build: {
     transpile: [
       'vee-validate/dist/rules'
